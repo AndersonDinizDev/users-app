@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ContainerItens } from "./styles";
+import { ContainerItens as Container } from "./styles";
 
-function ContainerItensComponent ({children}) {
+function ContainerItens ({children}) {
 
-    return <ContainerItens>{children}</ContainerItens>
+    return <Container>{children}</Container>
 }
 
 
-export default ContainerItensComponent;
+export default ContainerItens;

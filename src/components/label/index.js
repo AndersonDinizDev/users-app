@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Label } from "./styles";
+import { Label as LabelComponent } from "./styles";
 
-function LabelComponent ({children}) {
+function Label ({children}) {
 
-    return <Label>{children}</Label>
+    return <LabelComponent>{children}</LabelComponent>
 }
 
-export default LabelComponent;
+export default Label;

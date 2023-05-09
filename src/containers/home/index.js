@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import Axios from "axios";
 
 import H1 from "../../components/title";
 import Button from "../../components/button"
-import Input from "../../components/input"
 import Label from "../../components/label"
 import RegisterContainer from "../../components/containeritens";
 
-import { Container, RegisterLogoImg, } from "./styles";
+import { Container, RegisterLogoImg, Input, } from "./styles";
 
 import RegisterLogo from "../../assets/register-logo.svg";
 import Arrow from "../../assets/arrow.svg";
 
 const Home = () => {
+  
+  const [users, setUsers] = useState([]);
+  const inputName = useRef();
+  const inputAge = useRef();
+
+
+  async function addNewUser() {
+
+
+    const {data: newUser} = await Axios.post("http://localhost:5000/users", { name: inputName.current.value, age: inputAge.current.value,} );
+
+    setUsers([...users, newUser])
+
+    console.log(newUser)
+  }
+
+  
+
   return (
 
     <Container>
@@ -19,10 +37,10 @@ const Home = () => {
         <RegisterContainer>
           <H1>Olá!</H1>
           <Label>Nome:</Label>
-          <Input></Input>
+          <Input ref={inputName}/>
           <Label>Idade:</Label>
-          <Input></Input>
-          <Button>Cadastrar<img src={Arrow} alt="arrow-img"/></Button>
+          <Input ref={inputAge}/>
+          <Button onClick={addNewUser}>Cadastrar<img src={Arrow} alt="arrow-img"/></Button>
         </RegisterContainer>
     </Container>
   )

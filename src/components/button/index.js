@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Button } from "./styles";
+import { Button as ButtonComponent } from "./styles";
 
-function ButtonComponent ({children, ...props})  {
+function Button ({children, ...props})  {
 
-    return <Button {...props}>{children}</Button>
+    return <ButtonComponent {...props}>{children}</ButtonComponent>
 }
 
-export default ButtonComponent;
+export default Button;
