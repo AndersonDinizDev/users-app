@@ -21,7 +21,7 @@ const Home = () => {
   async function addNewUser() {
 
 
-    const {data: newUser} = await Axios.post("http://localhost:5000/users", { name: inputName.current.value, age: inputAge.current.value,} );
+    const {data: newUser} = await Axios.post("https://lucent-starburst-13ab0a.netlify.app/.netlify/functions/api/order", { name: inputName.current.value, age: inputAge.current.value,} );
 
     setUsers([...users, newUser])
 

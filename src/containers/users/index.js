@@ -17,7 +17,7 @@ const Users = () => {
   useEffect(() => {
 
     async function fetchUsers(){
-      const {data: newUsers} = await Axios.get('http://localhost:5000/users/');
+      const {data: newUsers} = await Axios.get('https://lucent-starburst-13ab0a.netlify.app/.netlify/functions/api/order/');
       setUsers(newUsers);
 
       console.log(newUsers)
@@ -29,7 +29,7 @@ const Users = () => {
 
   async function deleteUser(userId) {
 
-    await Axios.delete(`http://localhost:5000/users/${userId}`);
+    await Axios.delete(`https://lucent-starburst-13ab0a.netlify.app/.netlify/functions/api/order/${userId}`);
 
     const newUsers = users.filter((user) => user.id === userId);
 
